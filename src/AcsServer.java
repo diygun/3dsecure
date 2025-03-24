@@ -11,8 +11,8 @@ public class AcsServer {
     private static final int PORT_MONEY = 5050; // Port entre ACS et ACQ
     private static final int PORT_AUTH = 8445; // Port entre ACS et client
     private static final String ACQ_HOST = "localhost";
-    private static final String KEYSTORE_PATH = "./Projet2/Recap/keystore/acsKeystore.jks";
-    private static final String TRUSTSTORE_PATH = "./Projet2/Recap/truststore/acsTruststore.jks";
+    private static final String KEYSTORE_PATH = "./keystore/acsKeystore.jks";
+    private static final String TRUSTSTORE_PATH = "./truststore/acsTruststore.jks";
     private static final String PASSWORD = "password";
     private static final String ALIAS_ACS_SERVER = "acsserver";
     private static final Map<String, String> authCodeStore = new HashMap<>(); // Stock temporaire pour les codes d'authentification

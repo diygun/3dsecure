@@ -8,8 +8,8 @@ public class AcqServer {
     private static final int MONEY_PORT = 5050;
     private static final int ACQ_PORT = 8443;
     private static final String ACS_HOST = "localhost";
-    private static final String KEYSTORE_PATH = "./Projet2/Recap/keystore/acqKeystore.jks";
-    private static final String TRUSTSTORE_PATH = "./Projet2/Recap/truststore/acqTruststore.jks";
+    private static final String KEYSTORE_PATH = "./keystore/acqKeystore.jks";
+    private static final String TRUSTSTORE_PATH = "./truststore/acqTruststore.jks";
     private static final String PASSWORD = "password";
 
 

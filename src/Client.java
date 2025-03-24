@@ -6,8 +6,8 @@ import java.util.Base64;
 import java.util.Date;
 
 public class Client {
-    private static final String KEYSTORE_PATH = "./Projet2/Recap/keystore/clientKeystore.jks";
-    private static final String TRUSTSTORE_PATH = "./Projet2/Recap/truststore/clientTruststore.jks";
+    private static final String KEYSTORE_PATH = "./keystore/clientKeystore.jks";
+    private static final String TRUSTSTORE_PATH = "./truststore/clientTruststore.jks";
     private static final String STORE_PASSWORD = "password";
     private static final String CARD_NUMBER = "1234-5678-8765-4321";
     private static final int PORT_AUTH = 8445;

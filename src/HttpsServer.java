@@ -16,12 +16,12 @@ public class HttpsServer {
 
     public static void main(String[] args) throws Exception {
         // Charger les utilisateurs depuis users.txt
-        loadUsersFromFile("./Projet2/Recap/usersDb/users.txt");
+        loadUsersFromFile("./usersDb/users.txt");
 
         // Configurer le serveur HTTPS
         char[] keystorePassword = "password".toCharArray();
         KeyStore keyStore = KeyStore.getInstance("JKS");
-        try (FileInputStream keyStoreFile = new FileInputStream("./Projet2/Recap/keystore/httpsServerKeystore.jks")) {
+        try (FileInputStream keyStoreFile = new FileInputStream("./keystore/httpsServerKeystore.jks")) {
             keyStore.load(keyStoreFile, keystorePassword);
         }
 
@@ -268,7 +268,7 @@ public class HttpsServer {
     private static String communicateWithAcq(String authCode) throws Exception {
         // Charger le truststore
         KeyStore trustStore = KeyStore.getInstance("JKS");
-        try (FileInputStream trustStoreFile = new FileInputStream("./Projet2/Recap/truststore/acsTruststore.jks")) {
+        try (FileInputStream trustStoreFile = new FileInputStream("./truststore/acsTruststore.jks")) {
             trustStore.load(trustStoreFile, "password".toCharArray());
         }
 

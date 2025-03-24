@@ -13,7 +13,7 @@ public class UserCreator {
         String hashedPassword = PasswordUtils.hashPassword(password, salt);
 
         // Ajouter l'utilisateur dans le fichier
-        BufferedWriter writer = new BufferedWriter(new FileWriter("./Projet2/Recap/usersDb/users.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("./usersDb/users.txt", true));
         writer.write(username + ";" + hashedPassword + ";" + salt);
         writer.newLine();
         writer.close();

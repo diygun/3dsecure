@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3dsecure/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AcqServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AcqServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AcsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HttpsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserCreator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +33,12 @@
     &quot;assignee&quot;: &quot;diygun&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/diygun/3dsecure.git",
-    "accountId": "077beeb4-8990-4ae3-9999-63ad9e7a5fd5"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/diygun/3dsecure.git&quot;,
+    &quot;accountId&quot;: &quot;077beeb4-8990-4ae3-9999-63ad9e7a5fd5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -45,6 +51,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AcsServer.executor": "Run",
+    "Application.UserCreator.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
@@ -56,6 +63,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
@@ -123,6 +133,8 @@
       <workItem from="1742802824216" duration="1414000" />
       <workItem from="1742804243527" duration="63000" />
       <workItem from="1742804332908" duration="2586000" />
+      <workItem from="1742811457668" duration="33000" />
+      <workItem from="1742811491798" duration="810000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
