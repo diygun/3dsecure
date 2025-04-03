@@ -174,6 +174,7 @@ public class AcsServer {
                     if (authCodeStore.containsValue(authCode)) { // Check if the code exists
                         out.write("ACK\n");
                         System.out.println("Code validé");
+                        authCodeStore.values().remove(authCode);
                     } else {
                         out.write("NACK\n");
                         System.out.println("Code invalide");
@@ -241,29 +242,6 @@ public class AcsServer {
         app.post("/get_otp", handleGetOtp);
     }
 
-//    private static Handler handleBankLogin = ctx -> {
-//        BankLoginInfo loginInfo = ctx.bodyAsClass(BankLoginInfo.class);
-//
-//        String name = loginInfo.getClientName();
-//        String password = loginInfo.getClientPassword();
-//        String card = loginInfo.getClientCard();
-//
-//        System.out.println("Bank login : " + name);
-//        System.out.println("Bank login : " + password);
-//        System.out.println("Bank login : " + card);
-//
-//
-//        if (clientName.equals(name) && clientPassword.equals(password) && clientCard.equals(card)) {
-//            String token = generateRandomToken();
-//            String authCode = generateAuthCode();
-//            tokenStore.put(token, authCode);
-//            ctx.status(200).json(Map.of("token", token, "authCode", authCode));
-//        } else {
-//            ctx.status(401).result("Invalid credentials");
-//        }
-//    };
-
-
 
     private static Handler handleBankLogin = ctx -> {
         BankLoginInfo loginInfo = ctx.bodyAsClass(BankLoginInfo.class);
@@ -276,17 +254,22 @@ public class AcsServer {
         System.out.println("Bank login : " + password);
         System.out.println("Bank login : " + card);
 
-        if (clientName.equals(name) && clientPassword.equals(password) && clientCard.equals(card)) {
-            String token = generateRandomToken();
-            String authCode = generateAuthCode();
-            tokenStore.put(token, authCode);
-            authCodeStore.put(card, authCode); // Store the OTP in authCodeStore
-            ctx.status(200).json(Map.of("token", token, "authCode", authCode));
-        } else {
-            ctx.status(401).result("Invalid credentials");
+        try {
+            if (clientName.equals(name) && clientPassword.equals(password) && clientCard.equals(card)) {
+                String token = generateRandomToken();
+                String authCode = generateAuthCode();
+                tokenStore.put(token, authCode);
+                authCodeStore.put(card, authCode); // Store the OTP in authCodeStore
+                ctx.status(200).json(Map.of("token", token, "authCode", authCode));
+            } else {
+                ctx.status(401).result("Invalid credentials");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ctx.status(500).result("Internal server error");
         }
-    };
 
+    };
 
     private static String generateRandomToken() {
         byte[] bytes = new byte[16];
@@ -297,7 +280,6 @@ public class AcsServer {
         }
         return token.toString();
     }
-
 
     private static Handler handleGetOtp = ctx -> {
         String token = ctx.bodyAsClass(Map.class).get("authentication_token").toString();
