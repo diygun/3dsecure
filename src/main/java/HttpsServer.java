@@ -378,45 +378,6 @@ public class HttpsServer {
      * retrieves the corresponding OTP from the pending tokens map,
      * and returns it in the response.
      */
-//    private static Handler handleOtpRequest = ctx -> {
-//        String token = ctx.queryParam("token");
-//
-//        if (token == null || token.isEmpty()) {
-//            ctx.status(400).result("Token is required");
-//            return;
-//        }
-//
-//        String otp = pendingTokens.get(token);
-//
-//        if (otp != null) {
-//            ctx.status(200).result(otp);
-//        } else {
-//            ctx.status(404).result("Invalid or expired token");
-//        }
-//    };
-//    private static Handler handleOtpRequest = ctx -> {
-//        String token = ctx.queryParam("token");
-//        String otp = ctx.queryParam("otp");
-//
-//        if (token == null || token.isEmpty()) {
-//            ctx.status(400).result("Token is required");
-//            return;
-//        }
-//
-//        if (otp == null || otp.isEmpty()) {
-//            ctx.status(400).result("OTP is required");
-//            return;
-//        }
-//
-//        String storedOtp = pendingTokens.get(token);
-//
-//        if (storedOtp != null && storedOtp.equals(otp)) {
-//            ctx.status(200).result("OTP verified successfully");
-//        } else {
-//            ctx.status(404).result("Invalid or expired token/OTP");
-//        }
-//    };
-
     private static Handler handleOtpRequest = ctx -> {
         String token = ctx.queryParam("token");
         String otp = ctx.queryParam("otp");
@@ -433,8 +394,6 @@ public class HttpsServer {
 
         System.out.println("OTP received successfully : " + otp);
         System.out.println("Token received successfully : " + token);
-
-//
 
         // check if the token is valid
         if (pendingTokens.containsKey(token)) {
