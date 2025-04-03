@@ -9,7 +9,7 @@ public class Client {
     private static final String KEYSTORE_PATH = "./keystore/clientKeystore.jks";
     private static final String TRUSTSTORE_PATH = "./truststore/clientTruststore.jks";
     private static final String STORE_PASSWORD = "password";
-    private static final String CARD_NUMBER = "1234-5678-8765-4321";
+    private static final String CARD_NUMBER = "1234123412341234";
     private static final int PORT_AUTH = 8445;
 
     public static void main(String[] args) throws Exception {
