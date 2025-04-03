@@ -6,6 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import io.javalin.Javalin;
+import io.javalin.http.Handler;
+import modules.PaymentInfo;
+
 
 public class AcsServer {
     private static final int PORT_MONEY = 5050; // Port entre ACS et ACQ
@@ -57,9 +61,11 @@ public class AcsServer {
             }
         });
 
+
         authThread.start();
         moneyThread.start();
     }
+
 
     // Méthode pour gérer les communications avec le client pour valider le code
     private static void startClientServer(SSLContext sslContext, KeyStore trustStore, KeyStore keyStore) throws IOException {
