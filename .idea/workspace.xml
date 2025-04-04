@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Almost done, only remain to check if the  /bank_login OTP is the same as communicateWithAcq(otp) checks">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HttpsServer.java" afterDir="false" />
-    </list>
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="First MVP" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +121,7 @@
       <workItem from="1743624078881" duration="3144000" />
       <workItem from="1743688373032" duration="10214000" />
       <workItem from="1743705108033" duration="10676000" />
-      <workItem from="1743767078869" duration="1431000" />
+      <workItem from="1743767078869" duration="1807000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -199,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743723321358</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="First MVP">
+      <option name="closed" value="true" />
+      <created>1743771984564</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743771984564</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +228,8 @@
     <MESSAGE value="endpoints" />
     <MESSAGE value="clean unnecessary comments" />
     <MESSAGE value="Almost done, only remain to check if the  /bank_login OTP is the same as communicateWithAcq(otp) checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost done, only remain to check if the  /bank_login OTP is the same as communicateWithAcq(otp) checks" />
+    <MESSAGE value="First MVP" />
+    <option name="LAST_COMMIT_MESSAGE" value="First MVP" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
