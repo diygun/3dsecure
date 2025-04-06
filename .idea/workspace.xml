@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="First MVP">
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Cleaned code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/MerchantSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcqServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcqServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HttpsServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MPI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,33 +57,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AcqServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AcsServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.DS.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HttpsServer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UserCreator.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/diy/Desktop/IoT2/3dsecure CLINE/3dsecure&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AcqServer.executor": "Run",
+    "Application.AcsServer.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.DS.executor": "Run",
+    "Application.HttpsServer.executor": "Run",
+    "Application.MerchantSimulator.executor": "Run",
+    "Application.UserCreator.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/diy/Desktop/IoT2/3dsecure CLINE/3dsecure",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -129,7 +131,8 @@
       <workItem from="1743705108033" duration="10676000" />
       <workItem from="1743767078869" duration="2646000" />
       <workItem from="1743814110396" duration="752000" />
-      <workItem from="1743943679492" duration="7961000" />
+      <workItem from="1743943679492" duration="11095000" />
+      <workItem from="1743978232519" duration="458000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -219,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743772228890</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cleaned code">
+      <option name="closed" value="true" />
+      <created>1743975252835</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743975252835</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +256,8 @@
     <MESSAGE value="clean unnecessary comments" />
     <MESSAGE value="Almost done, only remain to check if the  /bank_login OTP is the same as communicateWithAcq(otp) checks" />
     <MESSAGE value="First MVP" />
-    <option name="LAST_COMMIT_MESSAGE" value="First MVP" />
+    <MESSAGE value="Cleaned code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
