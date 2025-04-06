@@ -72,6 +72,10 @@ public class AcqServer {
                     String authCode = in.readLine();
                     System.out.println("Code reçu : " + authCode);
 
+                    // Chose the ACS server according to the bank card number
+
+
+
                     // Connect to ACS to validate the code
                     boolean isValid = contactAcs(sslContext, authCode); // Use SSLContext directly
                     out.write(isValid ? "ACK\n" : "NACK\n");
