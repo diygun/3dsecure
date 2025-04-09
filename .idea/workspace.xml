@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Code restructured and updated">
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AcqServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcqServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +130,7 @@
       <workItem from="1743943679492" duration="11095000" />
       <workItem from="1743978232519" duration="1771000" />
       <workItem from="1744010956807" duration="2235000" />
-      <workItem from="1744221356035" duration="3340000" />
+      <workItem from="1744221356035" duration="3816000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -237,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743978844075</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=".">
+      <option name="closed" value="true" />
+      <created>1744225123084</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744225123084</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +272,8 @@
     <MESSAGE value="First MVP" />
     <MESSAGE value="Cleaned code" />
     <MESSAGE value="Code restructured and updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code restructured and updated" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
