@@ -47,6 +47,8 @@ public class AcsServer {
 
     // HttpClient for making the callback (Step 10)
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
+    private static final Map<String, Boolean> loginStatus = new ConcurrentHashMap<>();
+
 
 
     public static void main(String[] args) throws Exception {
@@ -187,27 +189,37 @@ public class AcsServer {
 
         // Endpoint for the link generated for unknown cards
         app.get("/payment-failed", handleFailedPage);
+
+        app.get("/bank-login", handleLoginGet);
+
+        app.post("/bank-login", handleLoginSubmit);
     }
 
     // Handler for Step 9: Display validation page/options to the user
     private static Handler handleValidationPage = ctx -> {
         String tokenA = ctx.queryParam("tokenA");
         if (tokenA == null || !pendingTransactions.containsKey(tokenA) || !"PENDING".equals(pendingTransactions.get(tokenA))) {
-            System.out.println("ACS Server: Invalid tokenA: " + tokenA);
             ctx.status(400).html("<h1>Invalid or Expired Payment Request</h1>");
             return;
         }
 
-        // Simple HTML form for confirmation
+        // Check if user is logged in
+        if (!loginStatus.getOrDefault(tokenA, false)) {
+            // Redirect to login if not authenticated
+            ctx.redirect("/bank-login?tokenA=" + URLEncoder.encode(tokenA, StandardCharsets.UTF_8));
+            return;
+        }
+
+        // If logged in, show confirmation form
         ctx.html("""
-                <h1>Confirm Payment</h1>
-                <p>Please confirm the transaction associated with request token: %s</p>
-                <form action="/confirm-payment" method="post">
-                    <input type="hidden" name="tokenA" value="%s">
-                    <button type="submit" name="action" value="confirm">Confirm Payment</button>
-                    <button type="submit" name="action" value="cancel">Cancel Payment</button>
-                </form>
-                """.formatted(tokenA, tokenA));
+        <h1>Confirm Payment</h1>
+        <p>Please confirm the transaction associated with request token: %s</p>
+        <form action="/confirm-payment" method="post">
+            <input type="hidden" name="tokenA" value="%s">
+            <button type="submit" name="action" value="confirm">Confirm Payment</button>
+            <button type="submit" name="action" value="cancel">Cancel Payment</button>
+        </form>
+    """.formatted(tokenA, tokenA));
     };
 
     // Handler for Step 9: User confirms/cancels payment
@@ -226,6 +238,9 @@ public class AcsServer {
         // Update status locally (optional, callback is key)
         pendingTransactions.put(tokenA, isSuccessful ? "CONFIRMED" : "CANCELLED");
 
+        // Remove login status for the token
+        loginStatus.remove(tokenA);
+
         // Step 10: Trigger callback to Merchant Backend
         System.out.println("ACS Server: Performing callback for TokenA: " + tokenA + ", Success: " + isSuccessful);
         boolean callbackSent = sendCallbackToMerchant(tokenA, isSuccessful);
@@ -235,19 +250,13 @@ public class AcsServer {
             ctx.html(isSuccessful ? "<h1>Payment Confirmed</h1><p>Thank you.</p>" : "<h1>Payment Cancelled</h1><p>Transaction was cancelled.</p>");
         } else {
             System.err.println("ACS Server: Callback FAILED for TokenA: " + tokenA);
-            // Show error to user, even if payment was 'confirmed', as the merchant wasn't notified.
-            ctx.status(500).html("<h1>Processing Error</h1><p>Could not complete the final step. Please contact support.</p>");
-            // reverting local status
+
+            // Reverting local status
             pendingTransactions.put(tokenA, "PENDING");
 
-            // retry logic for callback
-//            if (callbackSent) {
-//                System.out.println("ACS Server: Callback successful after retry.");
-//                ctx.html(isSuccessful ? "<h1>Payment Confirmed</h1><p>Thank you.</p>" : "<h1>Payment Cancelled</h1><p>Transaction was cancelled.</p>");
-//            } else {
-//                System.err.println("ACS Server: Callback FAILED after retry for TokenA: " + tokenA);
-//                ctx.status(500).html("<h1>Processing Error</h1><p>Could not complete the final step. Please contact support.</p>");
-//            }
+            // Show error to user, even if payment was 'confirmed', as the merchant wasn't notified.
+            ctx.status(500).html("<h1>Processing Error</h1><p>Could not complete the final step. Please contact support.</p>");
+
         }
     };
 
@@ -268,6 +277,52 @@ public class AcsServer {
         ctx.status(400).html("<h1>Payment Failed</h1><p>Reason: " + reason + "</p><p>Reference: " + tokenA + "</p>");
         // Note: No callback needed here as the failure was determined before user interaction.
     };
+
+
+    // Handler for Step 9: Bank Login Page
+    private static Handler handleLoginGet = ctx -> {
+        String tokenA = ctx.queryParam("tokenA");
+        if (tokenA == null || !pendingTransactions.containsKey(tokenA)) {
+            ctx.status(400).html("<h1>Invalid or Expired Payment Token</h1>");
+            return;
+        }
+
+        ctx.html("""
+        <h1>Bank Login</h1>
+        <form action="/bank-login" method="post">
+            <input type="hidden" name="tokenA" value="%s">
+            <label>Name: <input type="text" name="clientName" required></label><br>
+            <label>Password: <input type="password" name="clientPassword" required></label><br>
+            <label>Card Number: <input type="text" name="clientCard" required></label><br>
+            <button type="submit">Login</button>
+        </form>
+    """.formatted(tokenA));
+    };
+
+    // Handler for Step 9: Bank Login Submit
+    private static Handler handleLoginSubmit =ctx -> {
+        String tokenA = ctx.formParam("tokenA");
+        String name = ctx.formParam("clientName");
+        String password = ctx.formParam("clientPassword");
+        String card = ctx.formParam("clientCard");
+
+        if (tokenA == null || name == null || password == null || card == null) {
+            ctx.status(400).result("Missing login information");
+            return;
+        }
+
+        // Replace with your real values
+        String clientPassword = "securePass"; // set this somewhere globally or securely
+
+        if (VALID_NAME.equals(name) && card.equals(VALID_CARD_NUMBER) && password.equals(clientPassword)) {
+            loginStatus.put(tokenA, true); // Mark token as logged in
+            ctx.redirect("/validate-payment?tokenA=" + URLEncoder.encode(tokenA, StandardCharsets.UTF_8));
+        } else {
+            ctx.status(401).html("<h1>Login Failed</h1><p>Invalid credentials. Please try again.</p>");
+        }
+    };
+
+
 
 
     // Step 10: Method to send callback to the Merchant Backend
