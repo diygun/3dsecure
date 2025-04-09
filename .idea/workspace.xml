@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Cleaned code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MerchantSimulator.java" afterDir="false" />
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Code restructured and updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcqServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcqServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HttpsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +129,9 @@
       <workItem from="1743767078869" duration="2646000" />
       <workItem from="1743814110396" duration="752000" />
       <workItem from="1743943679492" duration="11095000" />
-      <workItem from="1743978232519" duration="458000" />
+      <workItem from="1743978232519" duration="1771000" />
+      <workItem from="1744010956807" duration="2235000" />
+      <workItem from="1744221356035" duration="3340000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -230,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743975252835</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Code restructured and updated">
+      <option name="closed" value="true" />
+      <created>1743978844075</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743978844075</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +264,8 @@
     <MESSAGE value="Almost done, only remain to check if the  /bank_login OTP is the same as communicateWithAcq(otp) checks" />
     <MESSAGE value="First MVP" />
     <MESSAGE value="Cleaned code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned code" />
+    <MESSAGE value="Code restructured and updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code restructured and updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

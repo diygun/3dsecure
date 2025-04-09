@@ -9,14 +9,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
-// Removed unused imports: cert.Certificate, HashMap, Map, Random, Signature
-import java.util.Map; // Keep for Javalin context handling if needed
-import java.util.concurrent.ConcurrentHashMap; // For thread-safe storage
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
-// Removed unused import: modules.BankLoginInfo
-import org.json.JSONObject; // Added for JSON handling
+import org.json.JSONObject;
 import org.json.JSONException;
 
 
@@ -94,8 +92,6 @@ public class AcsServer {
             }
         });
         apiThread.start();
-
-        // Removed old authThread and moneyThread logic
     }
 
     // Listens for connections from AcqServer (Step 4)
@@ -191,8 +187,6 @@ public class AcsServer {
 
         // Endpoint for the link generated for unknown cards
         app.get("/payment-failed", handleFailedPage);
-
-        // Removed old /bank_login, /get_otp endpoints
     }
 
     // Handler for Step 9: Display validation page/options to the user
@@ -243,7 +237,17 @@ public class AcsServer {
             System.err.println("ACS Server: Callback FAILED for TokenA: " + tokenA);
             // Show error to user, even if payment was 'confirmed', as the merchant wasn't notified.
             ctx.status(500).html("<h1>Processing Error</h1><p>Could not complete the final step. Please contact support.</p>");
-            // Consider reverting local status or adding retry logic for callback
+            // reverting local status
+            pendingTransactions.put(tokenA, "PENDING");
+
+            // retry logic for callback
+//            if (callbackSent) {
+//                System.out.println("ACS Server: Callback successful after retry.");
+//                ctx.html(isSuccessful ? "<h1>Payment Confirmed</h1><p>Thank you.</p>" : "<h1>Payment Cancelled</h1><p>Transaction was cancelled.</p>");
+//            } else {
+//                System.err.println("ACS Server: Callback FAILED after retry for TokenA: " + tokenA);
+//                ctx.status(500).html("<h1>Processing Error</h1><p>Could not complete the final step. Please contact support.</p>");
+//            }
         }
     };
 
@@ -298,8 +302,5 @@ public class AcsServer {
             return false;
         }
     }
-
-    // Removed unused methods: verifySignature, generateAuthCode, signMessage, contactAcq, verifyAcqCertificate, generateRandomToken, etc.
-
 }
 // End of AcsServer.java //
