@@ -1,15 +1,10 @@
 // Beggining of HttpsServer.java //
 import javax.net.ssl.*;
 import java.io.*;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.security.KeyStore;
-
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
-import org.json.JSONObject; // Added for JSON handling
+import org.json.JSONObject;
 
 public class HttpsServer {
     private static final int ACQ_PORT = 8443;

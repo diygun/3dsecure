@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
+import modules.LoginSession;
 import org.json.JSONObject;
 import org.json.JSONException;
 
@@ -47,7 +48,8 @@ public class AcsServer {
 
     // HttpClient for making the callback (Step 10)
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
-    private static final Map<String, Boolean> loginStatus = new ConcurrentHashMap<>();
+    // Store login state AND attempts per tokenA
+    private static final Map<String, LoginSession> loginStatus = new ConcurrentHashMap<>();
 
 
 
@@ -198,19 +200,22 @@ public class AcsServer {
     // Handler for Step 9: Display validation page/options to the user
     private static Handler handleValidationPage = ctx -> {
         String tokenA = ctx.queryParam("tokenA");
-        if (tokenA == null || !pendingTransactions.containsKey(tokenA) || !"PENDING".equals(pendingTransactions.get(tokenA))) {
-            ctx.status(400).html("<h1>Invalid or Expired Payment Request</h1>");
-            return;
-        }
 
-        // Check if user is logged in
-        if (!loginStatus.getOrDefault(tokenA, false)) {
-            // Redirect to login if not authenticated
+        // Retrieve login session info
+        LoginSession session = loginStatus.get(tokenA);
+        // If not logged in, redirect to login
+        if (session == null || !session.isLoggedIn) {
             ctx.redirect("/bank-login?tokenA=" + URLEncoder.encode(tokenA, StandardCharsets.UTF_8));
             return;
         }
 
-        // If logged in, show confirmation form
+        // Basic validation for the token
+        if (tokenA == null || !pendingTransactions.containsKey(tokenA) || !"PENDING".equals(pendingTransactions.get(tokenA)) || session.attempts >= 3 ) {
+            ctx.status(400).html("<h1>Invalid or Expired Payment Request</h1>");
+            return;
+        }
+
+        // User is authenticated — show the payment confirmation form
         ctx.html("""
         <h1>Confirm Payment</h1>
         <p>Please confirm the transaction associated with request token: %s</p>
@@ -311,19 +316,32 @@ public class AcsServer {
             return;
         }
 
-        // Replace with your real values
-        String clientPassword = "securePass"; // set this somewhere globally or securely
+        LoginSession session = loginStatus.computeIfAbsent(tokenA, k -> new LoginSession());
+
+        if (session.attempts >= 3) {
+            // Cancel the transaction after too many failed attempts
+            pendingTransactions.put(tokenA, "CANCELLED");
+            loginStatus.remove(tokenA); // Cleanup
+            ctx.redirect("/payment-failed?reason=too_many_attempts&tokenA=" + URLEncoder.encode(tokenA, StandardCharsets.UTF_8));
+            return;
+        }
+
+        String clientPassword = "securePass"; // TODO - check with db data
 
         if (VALID_NAME.equals(name) && card.equals(VALID_CARD_NUMBER) && password.equals(clientPassword)) {
-            loginStatus.put(tokenA, true); // Mark token as logged in
+            session.isLoggedIn = true;
+            session.attempts = 0; // Reset on success
             ctx.redirect("/validate-payment?tokenA=" + URLEncoder.encode(tokenA, StandardCharsets.UTF_8));
         } else {
-            ctx.status(401).html("<h1>Login Failed</h1><p>Invalid credentials. Please try again.</p>");
+            session.attempts++;
+            int remaining = 3 - session.attempts;
+            ctx.status(401).html("""
+            <h1>Login Failed</h1>
+            <p>Invalid credentials. You have %d attempt(s) remaining.</p>
+            <a href="/bank-login?tokenA=%s">Try Again</a>
+        """.formatted(Math.max(0, remaining), URLEncoder.encode(tokenA, StandardCharsets.UTF_8)));
         }
     };
-
-
-
 
     // Step 10: Method to send callback to the Merchant Backend
     private static boolean sendCallbackToMerchant(String tokenA, boolean isSuccessful) {
