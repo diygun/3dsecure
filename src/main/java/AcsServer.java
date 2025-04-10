@@ -24,7 +24,7 @@ public class AcsServer {
     // Port for the validation web interface (Javalin)
     private static final int ACS_WEB_PORT = 7071;
     // Base URL for the validation links (adjust host/port as needed)
-    private static final String VALIDATION_BASE_URL = Config.BASE_URL + ACS_WEB_PORT; // Use HTTPS in production
+    private static final String VALIDATION_BASE_URL = Config.BASE_URL + ":" + ACS_WEB_PORT; // Use HTTPS in production
 
     // Keystore for ACS's identity (private key)
     private static final String KEYSTORE_PATH = "./keystore/acsKeystore.jks";
@@ -43,7 +43,7 @@ public class AcsServer {
     private static final Map<String, String> pendingTransactions = new ConcurrentHashMap<>(); // Use ConcurrentHashMap for thread safety
 
     // URL for the Merchant Backend callback (Step 10) - ** CHANGE THIS **
-    private static final String MERCHANT_CALLBACK_URL = Config.BASE_URL + ":9090/payment-callback"; // Example URL
+    private static final String MERCHANT_CALLBACK_URL = Config.BASE_URL + ":9090/payment-callback"; // Example URL // https://api-achat.makeitnextgen.com/
 
     // HttpClient for making the callback (Step 10)
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
@@ -179,7 +179,7 @@ public class AcsServer {
     // Starts the Javalin Web Server for handling the validation link (Steps 8, 9)
     public static void startValidationWebServer() {
         Javalin app = Javalin.create().start(ACS_WEB_PORT);
-        System.out.println("ACS Server Validation Web Server listening on " + Config.BASE_URL + ACS_WEB_PORT);
+        System.out.println("ACS Server Validation Web Server listening on " + Config.BASE_URL + ":" + ACS_WEB_PORT);
 
         // Endpoint for the user to land on from the validation link (valid card case)
         app.get("/validate-payment", handleValidationPage);

@@ -103,7 +103,10 @@ public class HttpsServer {
                 ctx.status(500).result("Error processing payment via ACQ.");
             } else {
                 System.out.println("HTTPS Server: Returning validation link to Merchant Backend: " + validationLink);
-                ctx.status(200).json(new JSONObject().put("validationLink", validationLink)); // Send the link as plain text response body
+                JSONObject jsonResponse = new JSONObject();
+                jsonResponse.put("validationLink", validationLink);
+                ctx.status(200).result(jsonResponse.toString()); // Send as plain text
+                ctx.contentType("application/json"); // Set the correct content type
             }
 
         } catch (org.json.JSONException e) {
