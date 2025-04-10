@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="acq-3dsecure:jar" />
+      <artifact name="acs-3dsecure:jar" />
+      <artifact name="https-3dsecure:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment=".">
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Add login session management for user authentication">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile_bis" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/start-servers.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AcqServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcqServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HttpsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MerchantSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MerchantSimulator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -73,10 +89,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -130,7 +146,9 @@
       <workItem from="1743943679492" duration="11095000" />
       <workItem from="1743978232519" duration="1771000" />
       <workItem from="1744010956807" duration="2235000" />
-      <workItem from="1744221356035" duration="3816000" />
+      <workItem from="1744221356035" duration="8468000" />
+      <workItem from="1744281651486" duration="1602000" />
+      <workItem from="1744303947840" duration="10999000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -244,7 +262,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744225123084</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="user login before confirmation">
+      <option name="closed" value="true" />
+      <created>1744225641653</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744225641653</updated>
+    </task>
+    <task id="LOCAL-00016" summary="user login before confirmation">
+      <option name="closed" value="true" />
+      <created>1744225725372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744225725372</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add login session management for user authentication">
+      <option name="closed" value="true" />
+      <created>1744228767580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1744228767580</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +304,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
@@ -273,7 +316,19 @@
     <MESSAGE value="Cleaned code" />
     <MESSAGE value="Code restructured and updated" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="user login before confirmation" />
+    <MESSAGE value="Add login session management for user authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add login session management for user authentication" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.nio.channels.ClosedChannelException" package="java.nio.channels" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

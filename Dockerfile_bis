@@ -1,0 +1,22 @@
+FROM openjdk:23
+LABEL authors="diy"
+
+WORKDIR /app
+
+# Copy the project files into the container
+COPY . /app
+
+# Install Maven, build the project, and clean up
+RUN apt-get update && apt-get install -y maven && \
+    mvn clean package && \
+    apt-get remove -y maven && apt-get autoremove -y
+
+# Expose necessary ports (adjust based on your server configurations)
+EXPOSE 8443 5050 7070 7071
+
+# Copy the startup script into the container
+COPY start-servers.sh /app/start-servers.sh
+RUN chmod +x /app/start-servers.sh
+
+# Set the startup script as the container entrypoint
+ENTRYPOINT ["/app/start-servers.sh"]

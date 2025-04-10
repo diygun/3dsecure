@@ -129,7 +129,6 @@ public class AcqServer {
         // Vérifie s'il y a entre 13 et 19 chiffres pour le numéro de carte
         // on peut aussi verifier si le nombre 4 est le début de la carte Visa
         return cardNumber != null && cardNumber.matches("\\d{13,19}");
-
     }
 
     // Step 4: Routing Logic (Simplified Example)

@@ -4,7 +4,6 @@ import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import org.json.JSONObject;
 import org.json.JSONException;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -16,7 +15,7 @@ public class MerchantSimulator {
 
     // --- Configuration ---
     // URL of your HttpsServer API endpoint
-    private static final String HTTPS_SERVER_INITIATE_URL = "http://localhost:7070/initiate-payment";
+    private static final String HTTPS_SERVER_INITIATE_URL = "http://145.239.196.116:7070/initiate-payment";
 
     // Port and Path where this simulator will listen for the callback from AcsServer
     private static final int CALLBACK_LISTEN_PORT = 9090; // Make sure AcsServer points here
@@ -102,7 +101,7 @@ public class MerchantSimulator {
      */
     private static Javalin startCallbackListener() {
         Javalin app = Javalin.create().start(CALLBACK_LISTEN_PORT);
-        System.out.println("Callback listener started on http://localhost:" + CALLBACK_LISTEN_PORT + CALLBACK_LISTEN_PATH);
+        System.out.println("Callback listener started on http://145.239.196.116:" + CALLBACK_LISTEN_PORT + CALLBACK_LISTEN_PATH);
 
         // Define the handler for the callback endpoint (Step 10: AcsServer -> Merchant)
         app.post(CALLBACK_LISTEN_PATH, handlePaymentCallback);
