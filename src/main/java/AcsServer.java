@@ -352,6 +352,7 @@ public class AcsServer {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(MERCHANT_CALLBACK_URL))
                     .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + Config.JWT)
                     .POST(HttpRequest.BodyPublishers.ofString(payload.toString()))
                     .build();
 
