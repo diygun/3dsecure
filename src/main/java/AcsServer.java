@@ -43,7 +43,7 @@ public class AcsServer {
     private static final Map<String, String> pendingTransactions = new ConcurrentHashMap<>(); // Use ConcurrentHashMap for thread safety
 
     // URL for the Merchant Backend callback (Step 10) - ** CHANGE THIS **
-    private static final String MERCHANT_CALLBACK_URL = Config.BASE_URL + ":9090/payment-callback"; // Example URL // https://api-achat.makeitnextgen.com/
+    private static final String MERCHANT_CALLBACK_URL = "https://api-achat.makeitnextgen.com/api/order/callback"; // Example URL // https://api-achat.makeitnextgen.com/
 
     // HttpClient for making the callback (Step 10)
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
@@ -346,8 +346,8 @@ public class AcsServer {
         try {
             System.out.println("ACS Server - sendCallbackToMerchant - tokenA: " + tokenA + ", isSuccessful: " + isSuccessful);
             JSONObject payload = new JSONObject();
-            payload.put("tokenA", tokenA);
-            payload.put("isSuccessful", isSuccessful);
+            payload.put("orderId", tokenA);
+            payload.put("status", isSuccessful ? "paid" : "failed");
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(MERCHANT_CALLBACK_URL))

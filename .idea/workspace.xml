@@ -11,11 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Refactor server configurations to use dynamic BASE_URL and improve Docker setup">
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="Refactor server configurations to use dynamic BASE_URL and improve validation link handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HttpsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HttpsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,9 @@
       <workItem from="1744221356035" duration="8468000" />
       <workItem from="1744281651486" duration="1602000" />
       <workItem from="1744303947840" duration="13297000" />
-      <workItem from="1744326969272" duration="1123000" />
+      <workItem from="1744326969272" duration="2626000" />
+      <workItem from="1744371457867" duration="1000" />
+      <workItem from="1744372645260" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -289,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744324817460</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Refactor server configurations to use dynamic BASE_URL and improve validation link handling">
+      <option name="closed" value="true" />
+      <created>1744328168079</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1744328168079</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +331,8 @@
     <MESSAGE value="user login before confirmation" />
     <MESSAGE value="Add login session management for user authentication" />
     <MESSAGE value="Refactor server configurations to use dynamic BASE_URL and improve Docker setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor server configurations to use dynamic BASE_URL and improve Docker setup" />
+    <MESSAGE value="Refactor server configurations to use dynamic BASE_URL and improve validation link handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor server configurations to use dynamic BASE_URL and improve validation link handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
