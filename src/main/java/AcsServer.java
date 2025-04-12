@@ -300,9 +300,9 @@ public class AcsServer {
   <!-- Confirm Payment Page -->
   <div id="confirm-payment">
     <h1>Confirm Payment</h1>
-    <p>Please confirm the transaction associated with request token: %%s</p>
+    <p>Please confirm the transaction associated with request token: %s</p>
     <form action="/confirm-payment" method="post">
-      <input type="hidden" name="tokenA" value="%%s">
+      <input type="hidden" name="tokenA" value="%s">
       <button type="submit" name="action" value="confirm">Confirm Payment</button>
       <button type="submit" name="action" value="cancel">Cancel Payment</button>
     </form>
@@ -860,7 +860,7 @@ public class AcsServer {
   <div id="bank-login">
     <h1>Bank Login</h1>
     <form action="/bank-login" method="post">
-      <input type="hidden" name="tokenA" value="%%s">
+      <input type="hidden" name="tokenA" value="%s">
       <label>Name: <input type="text" name="clientName" required></label><br>
       <label>Password: <input type="password" name="clientPassword" required></label><br>
       <label>Card Number: <input type="text" name="clientCard" required></label><br>
@@ -1015,8 +1015,8 @@ public class AcsServer {
                           <!-- Login Failed Page -->
                           <div id="login-failed">
                             <h1>Login Failed</h1>
-                            <p>Invalid credentials. You have %%d attempt(s) remaining.</p>
-                            <a href="/bank-login?tokenA=%%s">Try Again</a>
+                            <p>Invalid credentials. You have %d attempt(s) remaining.</p>
+                            <a href="/bank-login?tokenA=%s">Try Again</a>
                           </div>
                     
                     
