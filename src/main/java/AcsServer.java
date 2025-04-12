@@ -1017,32 +1017,21 @@ public class AcsServer {
                     
                           button:hover {
                             background-color: #009688;
-                    
                           }
-                    
                           .error {
                             color: #FF5252;
-                    
                             text-align: center;
                           }
                         </style>
                         </head>
-                    
                         <body>
-                    
-                    
                           <!-- Login Failed Page -->
                           <div id="login-failed">
                             <h1>Login Failed</h1>
                             <p>Invalid credentials. You have %d attempt(s) remaining.</p>
-                            <a href="/bank-login?tokenA=%s">Try Again</a>
+                            <a style="display: flex; justify-content: center;" href="/bank-login?tokenA=%s">Try Again</a>
                           </div>
-                    
-                    
-                    
-                    
                         </body>
-                    
                         </html>
         """.formatted(Math.max(0, remaining), URLEncoder.encode(tokenA, StandardCharsets.UTF_8)));
         }

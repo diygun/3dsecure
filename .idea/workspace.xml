@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="acq-3dsecure:jar" />
       <artifact name="acs-3dsecure:jar" />
+      <artifact name="https-3dsecure:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,7 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="html update">
-      <change beforePath="$PROJECT_DIR$/out/artifacts/acs_3dsecure_jar/3dsecure.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/acs_3dsecure_jar/3dsecure.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +143,7 @@
       <workItem from="1744326969272" duration="2626000" />
       <workItem from="1744371457867" duration="1000" />
       <workItem from="1744372645260" duration="1946000" />
-      <workItem from="1744458487878" duration="5936000" />
+      <workItem from="1744458487878" duration="6141000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -423,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744464971073</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="html update">
+      <option name="closed" value="true" />
+      <created>1744465054633</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1744465054633</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
