@@ -291,14 +291,14 @@ public class AcsServer {
         }
 
         ctx.html("""
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+<!DOCTYPE html>
+<html lang="en">
 
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Bank Application&lt;/title&gt;
-&lt;style&gt;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Application</title>
+<style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -352,9 +352,9 @@ public class AcsServer {
     text-align: left;
   }
 
-  input[type=&quot;text&quot;],
-  input[type=&quot;password&quot;] {
-    width: 100%;
+  input[type="text"],
+  input[type="password"] {
+    width: 100%%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -386,25 +386,26 @@ public class AcsServer {
 
     text-align: center;
   }
-&lt;/style&gt;
-&lt;/head&gt;
+</style>
+</head>
 
-&lt;body&gt;
-
-
-  &lt;!-- Login Failed Page --&gt;
-  &lt;div id=&quot;login-failed&quot;&gt;
-    &lt;h1&gt;Login Failed&lt;/h1&gt;
-    &lt;p&gt;Invalid credentials. You have %d attempt(s) remaining.&lt;/p&gt;
-    &lt;a href=&quot;/bank-login?tokenA=%s&quot;&gt;Try Again&lt;/a&gt;
-  &lt;/div&gt;
+<body>
 
 
+  <!-- Login Failed Page -->
+  <div id="login-failed">
+    <h1>Login Failed</h1>
+    <p>Invalid credentials. You have %d attempt(s) remaining.</p>
+    <a href="/bank-login?tokenA=%s">Try Again</a>
+  </div>
 
 
-&lt;/body&gt;
 
-&lt;/html&gt;
+
+</body>
+
+</html>
+
     """.formatted(tokenA));
     };
 
