@@ -291,14 +291,120 @@ public class AcsServer {
         }
 
         ctx.html("""
-        <h1>Bank Login</h1>
-        <form action="/bank-login" method="post">
-            <input type="hidden" name="tokenA" value="%s">
-            <label>Name: <input type="text" name="clientName" required></label><br>
-            <label>Password: <input type="password" name="clientPassword" required></label><br>
-            <label>Card Number: <input type="text" name="clientCard" required></label><br>
-            <button type="submit">Login</button>
-        </form>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Bank Application&lt;/title&gt;
+&lt;style&gt;
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+
+    color: #0A2463;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  h1 {
+    color: #0A2463;
+
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: #00BFA5;
+
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  form {
+    background-color: #FFFFFF;
+
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  input[type=&quot;text&quot;],
+  input[type=&quot;password&quot;] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #0A2463;
+
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #00BFA5;
+
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #009688;
+
+  }
+
+  .error {
+    color: #FF5252;
+
+    text-align: center;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+
+  &lt;!-- Login Failed Page --&gt;
+  &lt;div id=&quot;login-failed&quot;&gt;
+    &lt;h1&gt;Login Failed&lt;/h1&gt;
+    &lt;p&gt;Invalid credentials. You have %d attempt(s) remaining.&lt;/p&gt;
+    &lt;a href=&quot;/bank-login?tokenA=%s&quot;&gt;Try Again&lt;/a&gt;
+  &lt;/div&gt;
+
+
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
     """.formatted(tokenA));
     };
 
