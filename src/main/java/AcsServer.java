@@ -296,20 +296,27 @@ public class AcsServer {
 </style>
 </head>
 <body>
-
   <!-- Confirm Payment Page -->
-  <div id="confirm-payment">
-    <h1>Confirm Payment</h1>
-    <p>Please confirm the transaction associated with request token: %s</p>
-    <form action="/confirm-payment" method="post">
-      <input type="hidden" name="tokenA" value="%s">
-      <button type="submit" name="action" value="confirm">Confirm Payment</button>
-      <button type="submit" name="action" value="cancel">Cancel Payment</button>
-    </form>
+  <div id="confirm-payment" style="display: flex;">
+    <div>
+      <h1>Confirm Payment</h1>
+      <p>Please confirm the transaction associated with request token: %s</p>
 
+    </div>
+    <div style="display: flex; align-content: center; justify-content: center;">
+      <form action="/confirm-payment" method="post">
+        <input type="hidden" name="tokenA" value="%s">
+        <div style="display: flex;">
+          <button style="margin: 20px;" type="submit" name="action" value="confirm">Confirm Payment</button>
+          <button style="margin: 20px;" type="submit" name="action" value="cancel">Cancel Payment</button>
 
+        </div>
+      </form>
+    </div>
+  </div>
   </div>
 </body>
+
 </html>
     """.formatted(tokenA, tokenA));
     };
