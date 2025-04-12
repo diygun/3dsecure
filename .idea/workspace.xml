@@ -12,6 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="html update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/acq_3dsecure_jar/3dsecure.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/acq_3dsecure_jar/3dsecure.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/https_3dsecure_jar/3dsecure.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/https_3dsecure_jar/3dsecure.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +146,7 @@
       <workItem from="1744326969272" duration="2626000" />
       <workItem from="1744371457867" duration="1000" />
       <workItem from="1744372645260" duration="1946000" />
-      <workItem from="1744458487878" duration="3876000" />
+      <workItem from="1744458487878" duration="4247000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -369,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744462934119</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="html update">
+      <option name="closed" value="true" />
+      <created>1744462993153</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1744462993153</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

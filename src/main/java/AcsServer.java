@@ -354,6 +354,7 @@ public class AcsServer {
 
   input[type="text"],
   input[type="password"] {
+    width: 100%%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -394,8 +395,8 @@ public class AcsServer {
   <!-- Login Failed Page -->
   <div id="login-failed">
     <h1>Login Failed</h1>
-    <p>Invalid credentials. You have %d attempt(s) remaining.</p>
-    <a href="/bank-login?tokenA=%s">Try Again</a>
+    <p>Invalid credentials. You have %%d attempt(s) remaining.</p>
+    <a href="/bank-login?tokenA=%%s">Try Again</a>
   </div>
 
 
