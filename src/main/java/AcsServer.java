@@ -309,7 +309,7 @@ public class AcsServer {
 
 <body>
   <!-- Confirm Payment Page -->
-  <div id="confirm-payment" style="display: flex;">
+  <div id="confirm-payment" style="display: flex;flex-direction: column;">
     <div>
       <h1>Confirm Payment</h1>
       <p>Please confirm the transaction associated with request token: %s</p>
