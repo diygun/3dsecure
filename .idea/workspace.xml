@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="acq-3dsecure:jar" />
       <artifact name="acs-3dsecure:jar" />
-      <artifact name="https-3dsecure:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="html update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/AcsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcsServer.java" afterDir="false" />
+    <list default="true" id="0586b266-55f4-407e-bacf-7ae7025c553f" name="Changes" comment="JWT update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="Security Analysis" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -143,7 +142,10 @@
       <workItem from="1744326969272" duration="2626000" />
       <workItem from="1744371457867" duration="1000" />
       <workItem from="1744372645260" duration="1946000" />
-      <workItem from="1744458487878" duration="6613000" />
+      <workItem from="1744458487878" duration="7807000" />
+      <workItem from="1744815943489" duration="4984000" />
+      <workItem from="1744840027445" duration="607000" />
+      <workItem from="1745015610348" duration="3722000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -449,7 +451,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744465570807</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="html update">
+      <option name="closed" value="true" />
+      <created>1744465732683</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1744465732683</updated>
+    </task>
+    <task id="LOCAL-00040" summary="JWT update">
+      <option name="closed" value="true" />
+      <created>1745017282906</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1745017282907</updated>
+    </task>
+    <task id="LOCAL-00041" summary="JWT update">
+      <option name="closed" value="true" />
+      <created>1745019405057</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1745019405057</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +514,8 @@
     <MESSAGE value="Compiled JAR + JWT auth for callback" />
     <MESSAGE value="Compiled JAR" />
     <MESSAGE value="html update" />
-    <option name="LAST_COMMIT_MESSAGE" value="html update" />
+    <MESSAGE value="JWT update" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
