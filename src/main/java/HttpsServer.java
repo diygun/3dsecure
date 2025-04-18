@@ -100,7 +100,7 @@ public class HttpsServer {
             // Check if ACQ returned an error indicator if necessary
             if (validationLink.startsWith("ERROR:")) {
                 System.err.println("HTTPS Server: ACQ returned an error: " + validationLink);
-                ctx.status(500).result("Error processing payment via ACQ.");
+                ctx.status(404).result("Error processing payment via ACQ.");
             } else {
                 System.out.println("HTTPS Server: Returning validation link to Merchant Backend: " + validationLink);
                 JSONObject jsonResponse = new JSONObject();
@@ -115,7 +115,7 @@ public class HttpsServer {
         } catch (Exception e) {
             System.err.println("HTTPS Server: Failed to process payment request: " + e.getMessage());
             e.printStackTrace();
-            ctx.status(500).result("Internal server error during payment processing");
+            ctx.status(404).result("Internal server error during payment processing");
         }
     };
 
