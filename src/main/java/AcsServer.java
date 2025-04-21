@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import modules.LoginSession;
@@ -49,7 +50,6 @@ public class AcsServer {
     private static final HttpClient httpClient = HttpClient.newBuilder().build();
     // Store login state AND attempts per tokenA
     private static final Map<String, LoginSession> loginStatus = new ConcurrentHashMap<>();
-
 
 
     public static void main(String[] args) throws Exception {
@@ -208,7 +208,7 @@ public class AcsServer {
         }
 
         // Basic validation for the token
-        if (tokenA == null || !pendingTransactions.containsKey(tokenA) || !"PENDING".equals(pendingTransactions.get(tokenA)) || session.attempts >= 3 ) {
+        if (tokenA == null || !pendingTransactions.containsKey(tokenA) || !"PENDING".equals(pendingTransactions.get(tokenA)) || session.attempts >= 3) {
             ctx.status(400).html("""
                     <!DOCTYPE html>
                     <html lang="en">
@@ -319,122 +319,122 @@ public class AcsServer {
 
         // User is authenticated — show the payment confirmation form
         ctx.html("""
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Application</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #F5F5F5;
-      color: #0A2463;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    h1 {
-      color: #0A2463;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    a {
-      color: #00BFA5;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    form {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-      text-align: left;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border: 1px solid #0A2463;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #00BFA5;
-
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #009688;
-
-    }
-
-    .error {
-      color: #FF5252;
-
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Confirm Payment Page -->
-  <div id="confirm-payment" style="display: flex;flex-direction: column;">
-    <div>
-      <h1>Confirm Payment</h1>
-      <p>Please confirm the transaction associated with request token: %s</p>
-
-    </div>
-    <div style="display: flex; align-content: center; justify-content: center;">
-      <form action="/confirm-payment" method="post">
-        <input type="hidden" name="tokenA" value="%s">
-        <div style="display: flex;">
-          <button style="margin: 20px;" type="submit" name="action" value="confirm">Confirm Payment</button>
-          <button style="margin: 20px;" type="submit" name="action" value="cancel">Cancel Payment</button>
-
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>
-</body>
-
-</html>
-    """.formatted(tokenA, tokenA));
+                <!DOCTYPE html>
+                <html lang="en">
+                
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Bank Application</title>
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      margin: 0;
+                      padding: 0;
+                      background-color: #F5F5F5;
+                      color: #0A2463;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100vh;
+                    }
+                
+                    h1 {
+                      color: #0A2463;
+                      text-align: center;
+                      margin-bottom: 20px;
+                    }
+                
+                    p {
+                      text-align: center;
+                      margin-bottom: 20px;
+                    }
+                
+                    a {
+                      color: #00BFA5;
+                      text-decoration: none;
+                      font-weight: bold;
+                    }
+                
+                    a:hover {
+                      text-decoration: underline;
+                    }
+                
+                    form {
+                      background-color: #FFFFFF;
+                      padding: 20px;
+                      border-radius: 8px;
+                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                      width: 300px;
+                      text-align: center;
+                    }
+                
+                    label {
+                      display: block;
+                      margin-bottom: 10px;
+                      text-align: left;
+                    }
+                
+                    input[type="text"],
+                    input[type="password"] {
+                      width: 100%%;
+                      padding: 10px;
+                      margin-top: 5px;
+                      margin-bottom: 15px;
+                      border: 1px solid #0A2463;
+                      border-radius: 4px;
+                      box-sizing: border-box;
+                    }
+                
+                    button {
+                      background-color: #00BFA5;
+                
+                      color: white;
+                      border: none;
+                      padding: 10px 20px;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      font-size: 16px;
+                      transition: background-color 0.3s ease;
+                    }
+                
+                    button:hover {
+                      background-color: #009688;
+                
+                    }
+                
+                    .error {
+                      color: #FF5252;
+                
+                      text-align: center;
+                    }
+                  </style>
+                </head>
+                
+                <body>
+                  <!-- Confirm Payment Page -->
+                  <div id="confirm-payment" style="display: flex;flex-direction: column;">
+                    <div>
+                      <h1>Confirm Payment</h1>
+                      <p>Please confirm the transaction associated with request token: %s</p>
+                
+                    </div>
+                    <div style="display: flex; align-content: center; justify-content: center;">
+                      <form action="/confirm-payment" method="post">
+                        <input type="hidden" name="tokenA" value="%s">
+                        <div style="display: flex;">
+                          <button style="margin: 20px;" type="submit" name="action" value="confirm">Confirm Payment</button>
+                          <button style="margin: 20px;" type="submit" name="action" value="cancel">Cancel Payment</button>
+                
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  </div>
+                </body>
+                
+                </html>
+                """.formatted(tokenA, tokenA));
     };
 
     // Handler for Step 9: User confirms/cancels payment
@@ -555,6 +555,105 @@ public class AcsServer {
         if (callbackSent) {
             System.out.println("ACS Server: Callback successful.");
             ctx.html(isSuccessful ? """
+                                <!DOCTYPE html>
+                                <html lang="en">
+                                <head>
+                                  <meta charset="UTF-8">
+                                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                  <title>Bank Application</title>
+                                <style>
+                                  body {
+                                    font-family: Arial, sans-serif;
+                                    margin: 0;
+                                    padding: 0;
+                                    background-color: #F5F5F5;
+                                    color: #0A2463;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    height: 100vh;
+                                  }
+                                  h1 {
+                                    color: #0A2463;
+                                    text-align: center;
+                                    margin-bottom: 20px;
+                                  }
+                                  p {
+                                    text-align: center;
+                                    margin-bottom: 20px;
+                                  }
+                                  a {
+                                    color: #00BFA5;
+                                    text-decoration: none;
+                                    font-weight: bold;
+                                  }
+                                  a:hover {
+                                    text-decoration: underline;
+                                  }
+                                  form {
+                                    background-color: #FFFFFF;
+                                    padding: 20px;
+                                    border-radius: 8px;
+                                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                    width: 300px;
+                                    text-align: center;
+                                  }
+                                  label {
+                                    display: block;
+                                    margin-bottom: 10px;
+                                    text-align: left;
+                                  }
+                                  input[type="text"],
+                                  input[type="password"] {
+                                    width: 100%%;
+                                    padding: 10px;
+                                    margin-top: 5px;
+                                    margin-bottom: 15px;
+                                    border: 1px solid #0A2463;
+                                    border-radius: 4px;
+                                    box-sizing: border-box;
+                                  }
+                                  button {
+                                    background-color: #00BFA5;
+                    
+                                    color: white;
+                                    border: none;
+                                    padding: 10px 20px;
+                                    border-radius: 4px;
+                                    cursor: pointer;
+                                    font-size: 16px;
+                                    transition: background-color 0.3s ease;
+                                  }
+                                  button:hover {
+                                    background-color: #009688;
+                    
+                                  }
+                                  .error {
+                                    color: #FF5252;
+                    
+                                    text-align: center;
+                                  }
+                                </style>
+                                </head>
+                                <body>
+                    
+                                  <!-- Payment Confirmed Page -->
+                                  <div id="payment-confirmed">
+                                    <h1>Payment Confirmed</h1>
+                                    <p>Thank you.</p>
+                                  </div>
+                    
+                    
+                                  </div>
+                    
+                                  <script>
+                                                window.location.href = "cla://payment-success";
+                                              </script>
+                    
+                                </body>
+                                </html>
+                    """ : """
+                    
                     <!DOCTYPE html>
                     <html lang="en">
                     <head>
@@ -637,113 +736,19 @@ public class AcsServer {
                     </head>
                     <body>
                     
-                      <!-- Payment Confirmed Page -->
-                      <div id="payment-confirmed">
-                        <h1>Payment Confirmed</h1>
-                        <p>Thank you.</p>
+                      <!-- Payment Cancelled Page -->
+                      <div id="payment-cancelled">
+                        <h1>Payment Cancelled</h1>
+                        <p>Transaction was cancelled.</p>
                       </div>
+                    
                     
                     
                       </div>
                     </body>
                     </html>
-        """ : """
-        
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Application</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F5F5F5;
-    color: #0A2463;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  h1 {
-    color: #0A2463;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  p {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  a {
-    color: #00BFA5;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  form {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-  label {
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  input[type="text"],
-  input[type="password"] {
-    width: 100%%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #0A2463;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  button {
-    background-color: #00BFA5;
-
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #009688;
-
-  }
-  .error {
-    color: #FF5252;
-
-    text-align: center;
-  }
-</style>
-</head>
-<body>
-
-  <!-- Payment Cancelled Page -->
-  <div id="payment-cancelled">
-    <h1>Payment Cancelled</h1>
-    <p>Transaction was cancelled.</p>
-  </div>
-
-
-
-  </div>
-</body>
-</html>
                     
-        """);
+                    """);
         } else {
             System.err.println("ACS Server: Callback FAILED for TokenA: " + tokenA);
 
@@ -752,100 +757,100 @@ public class AcsServer {
 
             // Show error to user, even if payment was 'confirmed', as the merchant wasn't notified.
             ctx.status(500).html("""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Application</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F5F5F5;
-    color: #0A2463;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  h1 {
-    color: #0A2463;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  p {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  a {
-    color: #00BFA5;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  form {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-  label {
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  input[type="text"],
-  input[type="password"] {
-    width: 100%%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #0A2463;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  button {
-    background-color: #00BFA5;
-
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #009688;
-
-  }
-  .error {
-    color: #FF5252;
-
-    text-align: center;
-  }
-</style>
-</head>
-<body>
-
-  <!-- Processing Error Page -->
-  <div id="processing-error">
-    <h1 class="error">Processing Error</h1>
-    <p>Could not complete the final step. Please contact support.</p>
-  </div>
-
-
-
-  </div>
-</body>
-</html>
-        """);
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>Bank Application</title>
+                    <style>
+                      body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #F5F5F5;
+                        color: #0A2463;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                      }
+                      h1 {
+                        color: #0A2463;
+                        text-align: center;
+                        margin-bottom: 20px;
+                      }
+                      p {
+                        text-align: center;
+                        margin-bottom: 20px;
+                      }
+                      a {
+                        color: #00BFA5;
+                        text-decoration: none;
+                        font-weight: bold;
+                      }
+                      a:hover {
+                        text-decoration: underline;
+                      }
+                      form {
+                        background-color: #FFFFFF;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        width: 300px;
+                        text-align: center;
+                      }
+                      label {
+                        display: block;
+                        margin-bottom: 10px;
+                        text-align: left;
+                      }
+                      input[type="text"],
+                      input[type="password"] {
+                        width: 100%%;
+                        padding: 10px;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                        border: 1px solid #0A2463;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                      }
+                      button {
+                        background-color: #00BFA5;
+                    
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        transition: background-color 0.3s ease;
+                      }
+                      button:hover {
+                        background-color: #009688;
+                    
+                      }
+                      .error {
+                        color: #FF5252;
+                    
+                        text-align: center;
+                      }
+                    </style>
+                    </head>
+                    <body>
+                    
+                      <!-- Processing Error Page -->
+                      <div id="processing-error">
+                        <h1 class="error">Processing Error</h1>
+                        <p>Could not complete the final step. Please contact support.</p>
+                      </div>
+                    
+                    
+                    
+                      </div>
+                    </body>
+                    </html>
+                    """);
 
         }
     };
@@ -1009,132 +1014,132 @@ public class AcsServer {
         }
 
         ctx.html("""
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Application</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F5F5F5;
-
-    color: #0A2463;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  h1 {
-    color: #0A2463;
-
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  p {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  a {
-    color: #00BFA5;
-
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  form {
-    background-color: #FFFFFF;
-
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-
-  input[type="text"],
-  input[type="password"] {
-    width: 100%%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #0A2463;
-
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  button {
-    background-color: #00BFA5;
-
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #009688;
-
-  }
-
-  .error {
-    color: #FF5252;
-
-    text-align: center;
-  }
-</style>
-</head>
-
-<body>
-
-
-  <!-- Bank Login Page -->
-  <div id="bank-login">
-    <h1>Bank Login</h1>
-    <form action="/bank-login" method="post">
-      <input type="hidden" name="tokenA" value="%s">
-      <label>Name: <input type="text" name="clientName" required></label><br>
-      <label>Password: <input type="password" name="clientPassword" required></label><br>
-      <label>Card Number: <input type="text" name="clientCard" required></label><br>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-
-
-
-
-
-</body>
-
-</html>
-
-    """.formatted(tokenA));
+                <!DOCTYPE html>
+                <html lang="en">
+                
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Bank Application</title>
+                <style>
+                  body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #F5F5F5;
+                
+                    color: #0A2463;
+                
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                  }
+                
+                  h1 {
+                    color: #0A2463;
+                
+                    text-align: center;
+                    margin-bottom: 20px;
+                  }
+                
+                  p {
+                    text-align: center;
+                    margin-bottom: 20px;
+                  }
+                
+                  a {
+                    color: #00BFA5;
+                
+                    text-decoration: none;
+                    font-weight: bold;
+                  }
+                
+                  a:hover {
+                    text-decoration: underline;
+                  }
+                
+                  form {
+                    background-color: #FFFFFF;
+                
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    width: 300px;
+                    text-align: center;
+                  }
+                
+                  label {
+                    display: block;
+                    margin-bottom: 10px;
+                    text-align: left;
+                  }
+                
+                  input[type="text"],
+                  input[type="password"] {
+                    width: 100%%;
+                    padding: 10px;
+                    margin-top: 5px;
+                    margin-bottom: 15px;
+                    border: 1px solid #0A2463;
+                
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                  }
+                
+                  button {
+                    background-color: #00BFA5;
+                
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    transition: background-color 0.3s ease;
+                  }
+                
+                  button:hover {
+                    background-color: #009688;
+                
+                  }
+                
+                  .error {
+                    color: #FF5252;
+                
+                    text-align: center;
+                  }
+                </style>
+                </head>
+                
+                <body>
+                
+                
+                  <!-- Bank Login Page -->
+                  <div id="bank-login">
+                    <h1>Bank Login</h1>
+                    <form action="/bank-login" method="post">
+                      <input type="hidden" name="tokenA" value="%s">
+                      <label>Name: <input type="text" name="clientName" required></label><br>
+                      <label>Password: <input type="password" name="clientPassword" required></label><br>
+                      <label>Card Number: <input type="text" name="clientCard" required></label><br>
+                      <button type="submit">Login</button>
+                    </form>
+                  </div>
+                
+                
+                
+                
+                
+                </body>
+                
+                </html>
+                
+                """.formatted(tokenA));
     };
 
     // Handler for Step 9: Bank Login Submit
-    private static Handler handleLoginSubmit =ctx -> {
+    private static Handler handleLoginSubmit = ctx -> {
         String tokenA = ctx.formParam("tokenA");
         String name = ctx.formParam("clientName");
         String password = ctx.formParam("clientPassword");
@@ -1165,110 +1170,110 @@ public class AcsServer {
             session.attempts++;
             int remaining = 3 - session.attempts;
             ctx.status(401).html("""
-            <!DOCTYPE html>
-                        <html lang="en">
+                        <!DOCTYPE html>
+                                    <html lang="en">
                     
-                        <head>
-                          <meta charset="UTF-8">
-                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                          <title>Bank Application</title>
-                        <style>
-                          body {
-                            font-family: Arial, sans-serif;
-                            margin: 0;
-                            padding: 0;
-                            background-color: #F5F5F5;
+                                    <head>
+                                      <meta charset="UTF-8">
+                                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                      <title>Bank Application</title>
+                                    <style>
+                                      body {
+                                        font-family: Arial, sans-serif;
+                                        margin: 0;
+                                        padding: 0;
+                                        background-color: #F5F5F5;
                     
-                            color: #0A2463;
+                                        color: #0A2463;
                     
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            height: 100vh;
-                          }
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        height: 100vh;
+                                      }
                     
-                          h1 {
-                            color: #0A2463;
+                                      h1 {
+                                        color: #0A2463;
                     
-                            text-align: center;
-                            margin-bottom: 20px;
-                          }
+                                        text-align: center;
+                                        margin-bottom: 20px;
+                                      }
                     
-                          p {
-                            text-align: center;
-                            margin-bottom: 20px;
-                          }
+                                      p {
+                                        text-align: center;
+                                        margin-bottom: 20px;
+                                      }
                     
-                          a {
-                            color: #00BFA5;
+                                      a {
+                                        color: #00BFA5;
                     
-                            text-decoration: none;
-                            font-weight: bold;
-                          }
+                                        text-decoration: none;
+                                        font-weight: bold;
+                                      }
                     
-                          a:hover {
-                            text-decoration: underline;
-                          }
+                                      a:hover {
+                                        text-decoration: underline;
+                                      }
                     
-                          form {
-                            background-color: #FFFFFF;
+                                      form {
+                                        background-color: #FFFFFF;
                     
-                            padding: 20px;
-                            border-radius: 8px;
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                            width: 300px;
-                            text-align: center;
-                          }
+                                        padding: 20px;
+                                        border-radius: 8px;
+                                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                        width: 300px;
+                                        text-align: center;
+                                      }
                     
-                          label {
-                            display: block;
-                            margin-bottom: 10px;
-                            text-align: left;
-                          }
+                                      label {
+                                        display: block;
+                                        margin-bottom: 10px;
+                                        text-align: left;
+                                      }
                     
-                          input[type="text"],
-                          input[type="password"] {
-                            width: 100%%;
-                            padding: 10px;
-                            margin-top: 5px;
-                            margin-bottom: 15px;
-                            border: 1px solid #0A2463;
+                                      input[type="text"],
+                                      input[type="password"] {
+                                        width: 100%%;
+                                        padding: 10px;
+                                        margin-top: 5px;
+                                        margin-bottom: 15px;
+                                        border: 1px solid #0A2463;
                     
-                            border-radius: 4px;
-                            box-sizing: border-box;
-                          }
+                                        border-radius: 4px;
+                                        box-sizing: border-box;
+                                      }
                     
-                          button {
-                            background-color: #00BFA5;
+                                      button {
+                                        background-color: #00BFA5;
                     
-                            color: white;
-                            border: none;
-                            padding: 10px 20px;
-                            border-radius: 4px;
-                            cursor: pointer;
-                            font-size: 16px;
-                            transition: background-color 0.3s ease;
-                          }
+                                        color: white;
+                                        border: none;
+                                        padding: 10px 20px;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        font-size: 16px;
+                                        transition: background-color 0.3s ease;
+                                      }
                     
-                          button:hover {
-                            background-color: #009688;
-                          }
-                          .error {
-                            color: #FF5252;
-                            text-align: center;
-                          }
-                        </style>
-                        </head>
-                        <body>
-                          <!-- Login Failed Page -->
-                          <div id="login-failed">
-                            <h1>Login Failed</h1>
-                            <p>Invalid credentials. You have %d attempt(s) remaining.</p>
-                            <a style="display: flex; justify-content: center;" href="/bank-login?tokenA=%s">Try Again</a>
-                          </div>
-                        </body>
-                        </html>
-        """.formatted(Math.max(0, remaining), URLEncoder.encode(tokenA, StandardCharsets.UTF_8)));
+                                      button:hover {
+                                        background-color: #009688;
+                                      }
+                                      .error {
+                                        color: #FF5252;
+                                        text-align: center;
+                                      }
+                                    </style>
+                                    </head>
+                                    <body>
+                                      <!-- Login Failed Page -->
+                                      <div id="login-failed">
+                                        <h1>Login Failed</h1>
+                                        <p>Invalid credentials. You have %d attempt(s) remaining.</p>
+                                        <a style="display: flex; justify-content: center;" href="/bank-login?tokenA=%s">Try Again</a>
+                                      </div>
+                                    </body>
+                                    </html>
+                    """.formatted(Math.max(0, remaining), URLEncoder.encode(tokenA, StandardCharsets.UTF_8)));
         }
     };
 
