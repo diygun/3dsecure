@@ -642,14 +642,9 @@ public class AcsServer {
                                     <h1>Payment Confirmed</h1>
                                     <p>Thank you.</p>
                                   </div>
-                    
-                    
-                                  </div>
-                    
                                   <script>
-                                                window.location.href = "cla://payment-success";
-                                              </script>
-                    
+                                  window.location.href = "cla://payment-success";
+                                  </script>
                                 </body>
                                 </html>
                     """ : """
