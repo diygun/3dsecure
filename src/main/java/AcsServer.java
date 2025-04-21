@@ -643,7 +643,15 @@ public class AcsServer {
                                     <p>Thank you.</p>
                                   </div>
                                   <script>
-                                  window.location.href = "cla://payment-success";
+                                    // Fonction pour détecter si l'utilisateur est sur Android mobile
+                                    function isAndroidMobile() {
+                                      return /Android/i.test(navigator.userAgent);
+                                    }
+                    
+                                    if (isAndroidMobile()) {
+                                      // Exécuter le deep link uniquement sur mobile Android
+                                      window.location.href = "cla://payment-success";
+                                    }
                                   </script>
                                 </body>
                                 </html>
