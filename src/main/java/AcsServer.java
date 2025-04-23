@@ -25,7 +25,7 @@ public class AcsServer {
     // Port for the validation web interface (Javalin)
     private static final int ACS_WEB_PORT = 7071;
     // Base URL for the validation links (adjust host/port as needed)
-    private static final String VALIDATION_BASE_URL = Config.BASE_URL + ":" + ACS_WEB_PORT; // Use HTTPS in production
+    private static final String VALIDATION_BASE_URL = Config.BASE_URL; // Use HTTPS in production
 
     // Keystore for ACS's identity (private key)
     private static final String KEYSTORE_PATH = "./keystore/acsKeystore.jks";
@@ -179,7 +179,7 @@ public class AcsServer {
     // Starts the Javalin Web Server for handling the validation link (Steps 8, 9)
     public static void startValidationWebServer() {
         Javalin app = Javalin.create().start(ACS_WEB_PORT);
-        System.out.println("ACS Server Validation Web Server listening on " + Config.BASE_URL + ":" + ACS_WEB_PORT);
+        System.out.println("ACS Server Validation Web Server listening on " + Config.BASE_URL);
 
         // Endpoint for the user to land on from the validation link (valid card case)
         app.get("/validate-payment", handleValidationPage);
